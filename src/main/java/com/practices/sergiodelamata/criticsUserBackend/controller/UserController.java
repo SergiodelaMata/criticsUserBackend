@@ -52,4 +52,10 @@ public class UserController {
         userService.deleteUser(idUser);
     }
 
+    @DeleteMapping("/users/{idUser}/critic/{idCritic}")
+    public void deleteCriticFromUser(@PathVariable("idUser") Integer idUser, @PathVariable("idCritic") Integer idCritic)
+    {
+        userService.deleteCritic(idUser, idCritic);
+    }
+
 }

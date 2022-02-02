@@ -3,7 +3,7 @@ package com.practices.sergiodelamata.criticsUserBackend.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -21,7 +21,7 @@ public class Critic {
     //@JoinColumn(name = "idUser", nullable = false)
     @JoinColumn(name = "idUser", referencedColumnName = "idUser", nullable = false)
     @JsonIgnoreProperties("critics")
-    private User user;
+    private User idUser;
 
     @Lob
     @Column(name = "valoration", nullable = false)
@@ -31,13 +31,13 @@ public class Critic {
     private Integer mark;
 
     @Column(name = "dateCritic", nullable = false)
-    private LocalDate dateCritic;
+    private Date dateCritic;
 
-    public LocalDate getDateCritic() {
+    public Date getDateCritic() {
         return dateCritic;
     }
 
-    public void setDateCritic(LocalDate dateCritic) {
+    public void setDateCritic(Date dateCritic) {
         this.dateCritic = dateCritic;
     }
 
@@ -57,12 +57,12 @@ public class Critic {
         this.valoration = valoration;
     }
 
-    public User getUser() {
-        return user;
+    public User getIdUser() {
+        return idUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setIdUser(User idUser) {
+        this.idUser = idUser;
     }
 
     public Integer getIdFilm() {
@@ -88,11 +88,11 @@ public class Critic {
         Critic critic = (Critic) o;
         return Objects.equals(idCritic, critic.idCritic) && Objects.equals(idFilm, critic.idFilm)
                 && Objects.equals(valoration, critic.valoration) && Objects.equals(mark, critic.mark)
-                && Objects.equals(dateCritic, critic.dateCritic) && Objects.equals(user, critic.user);
+                && Objects.equals(dateCritic, critic.dateCritic) && Objects.equals(idUser, critic.idUser);
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(idCritic, idFilm, valoration, mark, dateCritic, user);
+        return Objects.hash(idCritic, idFilm, valoration, mark, dateCritic, idUser);
     }
 }

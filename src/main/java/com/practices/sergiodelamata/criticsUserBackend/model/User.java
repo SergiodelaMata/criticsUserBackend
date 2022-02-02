@@ -1,5 +1,7 @@
 package com.practices.sergiodelamata.criticsUserBackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,7 @@ public class User {
     private Integer idUser;
 
     @Lob
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
     @Lob
@@ -22,7 +24,7 @@ public class User {
     private String password;
 
     @Lob
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "enable")
@@ -35,10 +37,12 @@ public class User {
     @JoinTable(name = "users_has_authorities", joinColumns = {
             @JoinColumn(name="idUser", referencedColumnName = "idUser")},
             inverseJoinColumns = {@JoinColumn(name="idRol", referencedColumnName = "idRol")})
+    @JsonIgnoreProperties("users")
     private List<Rol> rols = new ArrayList<>();
 
     //@OneToMany(mappedBy = "idUser", cascade = CascadeType.ALL, orphanRemoval = true)
     @OneToMany(mappedBy = "idUser", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("idUser")
     private List<Critic> critics = new ArrayList<>();
 
     public List<Critic> getCritics() {
@@ -114,7 +118,7 @@ public class User {
 
     public void addCritic(Critic critic){
         getCritics().add(critic);
-        critic.setUser(this);
+        critic.setIdUser(this);
     }
 
     public void removeCritic(Critic critic){

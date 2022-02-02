@@ -69,6 +69,7 @@ public class UserDAOImpl implements IUserDAO{
             {
                 user.removeCritic(optionalCritic.get());
                 userJPA.save(user);
+                criticJPA.deleteById(idCritic);
             }
         }
     }
