@@ -35,13 +35,35 @@ public class UserDAOImpl implements IUserDAO{
 
     @Override
     public User searchUserByUsername(String username){
-        return userJPA.findByUsername(username);
+        Optional<User> optional = Optional.ofNullable(userJPA.findByUsername(username));
+        if(optional.isPresent())
+        {
+            return optional.get();
+        }
+        return null;
     }
 
     @Override
     public User searchUserByEmail(String email) {
-        return userJPA.findByEmail(email);
+        Optional<User> optional = Optional.ofNullable(userJPA.findByEmail(email));
+        if(optional.isPresent())
+        {
+            return optional.get();
+        }
+        return null;
     }
+
+    @Override
+    public User searchUserByEmailPassword(String email, String password)
+    {
+        Optional<User> optional = Optional.ofNullable(userJPA.findByEmailAndPassword(email, password));
+        if(optional.isPresent())
+        {
+            return optional.get();
+        }
+        return null;
+    }
+
 
     @Override
     public void saveUser(User user) {

@@ -36,6 +36,13 @@ public class UserController {
         return userService.searchUserByEmail(email);
     }
 
+    @GetMapping("/users/login/{email}/{password}")
+    public User searchUserByEmailWithPassword(@PathVariable("email") String email, @PathVariable("password") String password)
+    {
+        return userService.searchUserByEmailPassword(email, password);
+    }
+
+
     @PostMapping("/users")
     public void saveUser(@RequestBody User user){
         userService.saveUser(user);

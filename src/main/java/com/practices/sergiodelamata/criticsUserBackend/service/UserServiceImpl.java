@@ -33,6 +33,12 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
+    public User searchUserByEmailPassword(String email, String password)
+    {
+        return userDAO.searchUserByEmailPassword(email, password);
+    }
+
+    @Override
     public void saveUser(User user) {
         userDAO.saveUser(user);
     }

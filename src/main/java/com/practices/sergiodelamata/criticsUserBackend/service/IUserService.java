@@ -14,6 +14,8 @@ public interface IUserService {
 
     User searchUserByEmail(String email);
 
+    User searchUserByEmailPassword(String email, String password);
+
     void saveUser(User user);
 
     void updateUser(User user);
