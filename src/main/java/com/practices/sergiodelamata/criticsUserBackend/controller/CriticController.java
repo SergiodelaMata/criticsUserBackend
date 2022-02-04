@@ -1,9 +1,6 @@
 package com.practices.sergiodelamata.criticsUserBackend.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.practices.sergiodelamata.criticsUserBackend.model.Critic;
-import com.practices.sergiodelamata.criticsUserBackend.model.Rol;
 import com.practices.sergiodelamata.criticsUserBackend.model.User;
 import com.practices.sergiodelamata.criticsUserBackend.service.ICriticService;
 import com.practices.sergiodelamata.criticsUserBackend.service.IUserService;
@@ -12,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController

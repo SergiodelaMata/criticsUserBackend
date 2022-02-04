@@ -1,5 +1,7 @@
 package com.practices.sergiodelamata.criticsUserBackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "authorities")
-public class Rol implements Serializable {
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idRol", nullable = false)
@@ -16,17 +18,6 @@ public class Rol implements Serializable {
     @Lob
     @Column(name = "authority", nullable = false)
     private String authority;
-
-    @ManyToMany(mappedBy = "rols")
-    private List<User> users = new ArrayList<>();
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 
     public String getAuthority() {
         return authority;

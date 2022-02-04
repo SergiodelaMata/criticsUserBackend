@@ -38,7 +38,7 @@ public class User {
             @JoinColumn(name="idUser", referencedColumnName = "idUser")},
             inverseJoinColumns = {@JoinColumn(name="idRol", referencedColumnName = "idRol")})
     @JsonIgnoreProperties("users")
-    private List<Rol> rols = new ArrayList<>();
+    private List<Role> roles = new ArrayList<>();
 
     //@OneToMany(mappedBy = "idUser", cascade = CascadeType.ALL, orphanRemoval = true)
     @OneToMany(mappedBy = "idUser", cascade = CascadeType.ALL)
@@ -53,12 +53,12 @@ public class User {
         this.critics = critics;
     }
 
-    public List<Rol> getRols() {
-        return rols;
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    public void setRols(List<Rol> rols) {
-        this.rols = rols;
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public Boolean getEnable() {
@@ -108,12 +108,12 @@ public class User {
         User user = (User) o;
         return enable == user.enable && Objects.equals(idUser, user.idUser) && Objects.equals(username, user.username)
                 && Objects.equals(password, user.password) && Objects.equals(email, user.email)
-                && Objects.equals(critics, user.critics) && Objects.equals(rols, user.rols);
+                && Objects.equals(critics, user.critics) && Objects.equals(roles, user.roles);
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(idUser, username, password, email, enable, critics, rols);
+        return Objects.hash(idUser, username, password, email, enable, critics, roles);
     }
 
     public void addCritic(Critic critic){
