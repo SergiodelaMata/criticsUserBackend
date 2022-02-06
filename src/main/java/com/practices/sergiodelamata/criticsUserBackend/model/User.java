@@ -36,7 +36,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "idRol"))*/
     @JoinTable(name = "users_has_authorities", joinColumns = {
             @JoinColumn(name="idUser", referencedColumnName = "idUser")},
-            inverseJoinColumns = {@JoinColumn(name="idRol", referencedColumnName = "idRol")})
+            inverseJoinColumns = {@JoinColumn(name="idRole", referencedColumnName = "idRole")})
     @JsonIgnoreProperties("users")
     private List<Role> roles = new ArrayList<>();
 
