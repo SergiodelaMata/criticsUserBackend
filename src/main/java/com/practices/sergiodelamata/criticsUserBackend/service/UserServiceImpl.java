@@ -23,12 +23,12 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
-    public User searchUserByUsername(String username) {
+    public List<User> searchUserByUsername(String username) {
         return userDAO.searchUserByUsername(username);
     }
 
     @Override
-    public User searchUserByEmail(String email) {
+    public List<User> searchUserByEmail(String email) {
         return userDAO.searchUserByEmail(email);
     }
 

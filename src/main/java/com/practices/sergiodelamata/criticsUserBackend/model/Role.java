@@ -13,7 +13,7 @@ public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idRol", nullable = false)
-    private Integer idRol;
+    private Integer idRole;
 
     @Lob
     @Column(name = "authority", nullable = false)
@@ -27,11 +27,11 @@ public class Role implements Serializable {
         this.authority = authority;
     }
 
-    public Integer getIdRol() {
-        return idRol;
+    public Integer getIdRole() {
+        return idRole;
     }
 
-    public void setIdRol(Integer idRol) {
-        this.idRol = idRol;
+    public void setIdRole(Integer idRol) {
+        this.idRole = idRol;
     }
 }

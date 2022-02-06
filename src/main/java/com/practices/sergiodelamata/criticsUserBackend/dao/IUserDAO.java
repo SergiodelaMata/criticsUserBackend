@@ -10,9 +10,9 @@ public interface IUserDAO {
 
     User searchUserById(Integer idUser);
 
-    User searchUserByUsername(String username);
+    List<User> searchUserByUsername(String username);
 
-    User searchUserByEmail(String email);
+    List<User> searchUserByEmail(String email);
 
     User searchUserByEmailPassword(String email, String password);
 
