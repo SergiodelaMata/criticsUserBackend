@@ -23,6 +23,18 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
+    public User searchUserByUsernameUnique(String username)
+    {
+        return userDAO.searchUserByUsernameUnique(username);
+    }
+
+    @Override
+    public User searchUserByEmailUnique(String email)
+    {
+        return userDAO.searchUserByEmailUnique(email);
+    }
+
+    @Override
     public List<User> searchUserByUsername(String username) {
         return userDAO.searchUserByUsername(username);
     }

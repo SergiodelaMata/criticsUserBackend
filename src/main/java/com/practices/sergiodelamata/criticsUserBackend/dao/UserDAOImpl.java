@@ -34,6 +34,19 @@ public class UserDAOImpl implements IUserDAO{
     }
 
     @Override
+    public User searchUserByUsernameUnique(String username)
+    {
+        return userJPA.findByUsername(username);
+    }
+
+    @Override
+    public User searchUserByEmailUnique(String email)
+    {
+        return userJPA.findByEmail(email);
+    }
+
+
+    @Override
     public List<User> searchUserByUsername(String username){
         return userJPA.findByUsernameIsContaining(username);
     }

@@ -24,6 +24,18 @@ public class UserController {
         return userService.searchUserById(idUser);
     }
 
+    @GetMapping("/users/username/{username}/unique")
+    public User searchUserByUsernameUnique(@PathVariable("username") String username)
+    {
+        return userService.searchUserByUsernameUnique(username);
+    }
+
+    @GetMapping("/users/email/{email}/unique")
+    public User searchUserByEmailUnique(@PathVariable("email") String email)
+    {
+        return userService.searchUserByEmailUnique(email);
+    }
+
     @GetMapping("/users/username/{username}")
     public List<User> searchUserByUsername(@PathVariable("username") String username)
     {

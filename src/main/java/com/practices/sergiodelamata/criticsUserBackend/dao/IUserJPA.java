@@ -7,6 +7,10 @@ import java.util.List;
 
 public interface IUserJPA extends JpaRepository<User, Integer> {
 
+    User findByUsername(String username);
+
+    User findByEmail(String email);
+
     List<User> findByUsernameIsContaining(String username);
 
     List<User> findByEmailIsContaining(String email);
