@@ -21,7 +21,7 @@ public class Critic {
     //@JoinColumn(name = "idUser", nullable = false)
     @JoinColumn(name = "idUser", referencedColumnName = "idUser", nullable = false)
     @JsonIgnoreProperties("critics")
-    private User idUser;
+    private User user;
 
     @Lob
     @Column(name = "valoration", nullable = false)
@@ -57,12 +57,12 @@ public class Critic {
         this.valoration = valoration;
     }
 
-    public User getIdUser() {
-        return idUser;
+    public User getUser() {
+        return user;
     }
 
-    public void setIdUser(User idUser) {
-        this.idUser = idUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Integer getIdFilm() {
@@ -88,11 +88,11 @@ public class Critic {
         Critic critic = (Critic) o;
         return Objects.equals(idCritic, critic.idCritic) && Objects.equals(idFilm, critic.idFilm)
                 && Objects.equals(valoration, critic.valoration) && Objects.equals(mark, critic.mark)
-                && Objects.equals(dateCritic, critic.dateCritic) && Objects.equals(idUser, critic.idUser);
+                && Objects.equals(dateCritic, critic.dateCritic) && Objects.equals(user, critic.user);
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(idCritic, idFilm, valoration, mark, dateCritic, idUser);
+        return Objects.hash(idCritic, idFilm, valoration, mark, dateCritic, user);
     }
 }

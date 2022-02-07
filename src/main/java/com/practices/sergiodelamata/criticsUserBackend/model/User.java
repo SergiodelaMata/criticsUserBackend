@@ -41,8 +41,8 @@ public class User {
     private List<Role> roles = new ArrayList<>();
 
     //@OneToMany(mappedBy = "idUser", cascade = CascadeType.ALL, orphanRemoval = true)
-    @OneToMany(mappedBy = "idUser", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("idUser")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
     private List<Critic> critics = new ArrayList<>();
 
     public List<Critic> getCritics() {
@@ -118,7 +118,7 @@ public class User {
 
     public void addCritic(Critic critic){
         getCritics().add(critic);
-        critic.setIdUser(this);
+        critic.setUser(this);
     }
 
     public void removeCritic(Critic critic){
